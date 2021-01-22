@@ -1,0 +1,667 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Mainframe.gd" type="Script" id=1]
+[ext_resource path="res://Interface.gd" type="Script" id=2]
+[ext_resource path="res://Server.gd" type="Script" id=3]
+[ext_resource path="res://i/minus.png" type="Texture" id=4]
+[ext_resource path="res://i/play.png" type="Texture" id=5]
+[ext_resource path="res://i/plus.png" type="Texture" id=6]
+[ext_resource path="res://i/box.png" type="Texture" id=7]
+[ext_resource path="res://i/refresh.png" type="Texture" id=8]
+[ext_resource path="res://i/down.png" type="Texture" id=9]
+[ext_resource path="res://i/stop.png" type="Texture" id=10]
+[ext_resource path="res://Connect.gd" type="Script" id=11]
+[ext_resource path="res://i/up.png" type="Texture" id=12]
+[ext_resource path="res://Options.gd" type="Script" id=13]
+[ext_resource path="res://fonts/overpass-mono/overpass-mono-regular.otf" type="DynamicFontData" id=14]
+[ext_resource path="res://fonts/overpass/overpass-italic.otf" type="DynamicFontData" id=15]
+[ext_resource path="res://fonts/overpass/overpass-bold.otf" type="DynamicFontData" id=16]
+[ext_resource path="res://fonts/overpass/overpass-bold-italic.otf" type="DynamicFontData" id=17]
+[ext_resource path="res://fonts/overpass/overpass-regular.otf" type="DynamicFontData" id=18]
+[ext_resource path="res://Carts.gd" type="Script" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 13
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 13
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 13
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 13
+font_data = ExtResource( 18 )
+
+[node name="Mainframe" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.840881
+margin_bottom = 0.840881
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interface" type="WindowDialog" parent="."]
+visible = true
+margin_right = 504.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 390, 250 )
+window_title = "Interface"
+resizable = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="Interface"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connect" type="VBoxContainer" parent="Interface/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerLabel" type="Label" parent="Interface/TabContainer/Connect"]
+margin_right = 486.0
+margin_bottom = 14.0
+text = "Servers"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ServerList" type="ItemList" parent="Interface/TabContainer/Connect"]
+margin_top = 18.0
+margin_right = 486.0
+margin_bottom = 216.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinButtons" type="HBoxContainer" parent="Interface/TabContainer/Connect"]
+margin_top = 220.0
+margin_right = 486.0
+margin_bottom = 244.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_right = 28.0
+margin_bottom = 24.0
+icon = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Leave" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 24.0
+disabled = true
+icon = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joiner" type="LineEdit" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 64.0
+margin_right = 209.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+max_length = 12
+secret = true
+placeholder_text = "Join Code..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Server" type="LineEdit" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 213.0
+margin_right = 358.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "NGP Server"
+placeholder_text = "Server Name..."
+
+[node name="Add" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 362.0
+margin_right = 390.0
+margin_bottom = 24.0
+icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remove" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 394.0
+margin_right = 422.0
+margin_bottom = 24.0
+disabled = true
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 426.0
+margin_right = 454.0
+margin_bottom = 24.0
+disabled = true
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down" type="Button" parent="Interface/TabContainer/Connect/JoinButtons"]
+margin_left = 458.0
+margin_right = 486.0
+margin_bottom = 24.0
+disabled = true
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sep" type="HSeparator" parent="Interface/TabContainer/Connect"]
+margin_top = 248.0
+margin_right = 486.0
+margin_bottom = 252.0
+
+[node name="Info" type="Label" parent="Interface/TabContainer/Connect"]
+margin_top = 256.0
+margin_right = 486.0
+margin_bottom = 270.0
+text = "Not Connected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sep2" type="HSeparator" parent="Interface/TabContainer/Connect"]
+margin_top = 274.0
+margin_right = 486.0
+margin_bottom = 278.0
+
+[node name="HostButtons" type="HBoxContainer" parent="Interface/TabContainer/Connect"]
+margin_top = 282.0
+margin_right = 486.0
+margin_bottom = 306.0
+
+[node name="PortLabel" type="Label" parent="Interface/TabContainer/Connect/HostButtons"]
+margin_top = 5.0
+margin_right = 30.0
+margin_bottom = 19.0
+text = "Port:"
+
+[node name="Port" type="SpinBox" parent="Interface/TabContainer/Connect/HostButtons"]
+margin_left = 34.0
+margin_right = 108.0
+margin_bottom = 24.0
+min_value = 1024.0
+max_value = 65535.0
+value = 31398.0
+align = 1
+
+[node name="Desc" type="LineEdit" parent="Interface/TabContainer/Connect/HostButtons"]
+margin_left = 112.0
+margin_right = 392.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+placeholder_text = "Description..."
+
+[node name="Host" type="Button" parent="Interface/TabContainer/Connect/HostButtons"]
+margin_left = 396.0
+margin_right = 438.0
+margin_bottom = 24.0
+text = "Host"
+
+[node name="Code" type="Button" parent="Interface/TabContainer/Connect/HostButtons"]
+margin_left = 442.0
+margin_right = 486.0
+margin_bottom = 24.0
+disabled = true
+text = "Code"
+
+[node name="Server" type="HSplitContainer" parent="Interface/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 75
+script = ExtResource( 3 )
+
+[node name="Players" type="VBoxContainer" parent="Interface/TabContainer/Server"]
+margin_right = 121.0
+margin_bottom = 306.0
+
+[node name="PlayerLabel" type="Label" parent="Interface/TabContainer/Server/Players"]
+margin_right = 121.0
+margin_bottom = 14.0
+text = "Players"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerList" type="ItemList" parent="Interface/TabContainer/Server/Players"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 306.0
+size_flags_vertical = 3
+allow_rmb_select = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Console" type="VBoxContainer" parent="Interface/TabContainer/Server"]
+margin_left = 133.0
+margin_right = 486.0
+margin_bottom = 306.0
+
+[node name="Info" type="Label" parent="Interface/TabContainer/Server/Console"]
+margin_right = 353.0
+margin_bottom = 14.0
+text = "Not Connected"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Console" type="Panel" parent="Interface/TabContainer/Server/Console"]
+margin_top = 18.0
+margin_right = 353.0
+margin_bottom = 278.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Interface/TabContainer/Server/Console/Console"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+focus_mode = 2
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_italics_font = SubResource( 2 )
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SenderBar" type="HBoxContainer" parent="Interface/TabContainer/Server/Console"]
+margin_top = 282.0
+margin_right = 353.0
+margin_bottom = 306.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sender" type="LineEdit" parent="Interface/TabContainer/Server/Console/SenderBar"]
+margin_right = 305.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Clear" type="Button" parent="Interface/TabContainer/Server/Console/SenderBar"]
+margin_left = 309.0
+margin_right = 353.0
+margin_bottom = 24.0
+text = "Clear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Carts" type="HSplitContainer" parent="Interface/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+split_offset = 100
+script = ExtResource( 19 )
+
+[node name="Packs" type="VBoxContainer" parent="Interface/TabContainer/Carts"]
+margin_right = 168.0
+margin_bottom = 306.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="HBoxContainer" parent="Interface/TabContainer/Carts/Packs"]
+margin_right = 168.0
+margin_bottom = 22.0
+
+[node name="Label" type="Label" parent="Interface/TabContainer/Carts/Packs/Top"]
+margin_top = 4.0
+margin_right = 136.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+text = "Packs"
+align = 1
+
+[node name="Folder" type="Button" parent="Interface/TabContainer/Carts/Packs/Top"]
+margin_left = 140.0
+margin_right = 168.0
+margin_bottom = 22.0
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PacksList" type="Tree" parent="Interface/TabContainer/Carts/Packs"]
+margin_top = 26.0
+margin_right = 168.0
+margin_bottom = 306.0
+size_flags_vertical = 3
+
+[node name="Other" type="VBoxContainer" parent="Interface/TabContainer/Carts"]
+margin_left = 180.0
+margin_right = 486.0
+margin_bottom = 306.0
+
+[node name="Buttons" type="HBoxContainer" parent="Interface/TabContainer/Carts/Other"]
+margin_right = 306.0
+margin_bottom = 22.0
+
+[node name="Play" type="Button" parent="Interface/TabContainer/Carts/Other/Buttons"]
+margin_right = 28.0
+margin_bottom = 22.0
+disabled = true
+icon = ExtResource( 5 )
+
+[node name="Stop" type="Button" parent="Interface/TabContainer/Carts/Other/Buttons"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 22.0
+disabled = true
+icon = ExtResource( 10 )
+
+[node name="Refresh" type="Button" parent="Interface/TabContainer/Carts/Other/Buttons"]
+margin_left = 64.0
+margin_right = 92.0
+margin_bottom = 22.0
+disabled = true
+icon = ExtResource( 8 )
+
+[node name="Info" type="PanelContainer" parent="Interface/TabContainer/Carts/Other"]
+margin_top = 26.0
+margin_right = 306.0
+margin_bottom = 306.0
+size_flags_vertical = 3
+
+[node name="InfoText" type="RichTextLabel" parent="Interface/TabContainer/Carts/Other/Info"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 299.0
+margin_bottom = 273.0
+bbcode_enabled = true
+
+[node name="Options" type="VBoxContainer" parent="Interface/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sep" type="HSeparator" parent="Interface/TabContainer/Options"]
+margin_right = 486.0
+margin_bottom = 4.0
+
+[node name="OptionsLabel" type="Label" parent="Interface/TabContainer/Options"]
+margin_top = 8.0
+margin_right = 486.0
+margin_bottom = 22.0
+text = "Options"
+align = 1
+
+[node name="Sep2" type="HSeparator" parent="Interface/TabContainer/Options"]
+margin_top = 26.0
+margin_right = 486.0
+margin_bottom = 30.0
+
+[node name="PlayerName" type="HBoxContainer" parent="Interface/TabContainer/Options"]
+margin_top = 34.0
+margin_right = 486.0
+margin_bottom = 58.0
+
+[node name="Label" type="Label" parent="Interface/TabContainer/Options/PlayerName"]
+margin_top = 5.0
+margin_right = 78.0
+margin_bottom = 19.0
+text = "  Username:"
+
+[node name="Username" type="LineEdit" parent="Interface/TabContainer/Options/PlayerName"]
+margin_left = 82.0
+margin_right = 486.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "player"
+
+[node name="Key" type="HBoxContainer" parent="Interface/TabContainer/Options"]
+margin_top = 62.0
+margin_right = 486.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="Interface/TabContainer/Options/Key"]
+margin_top = 5.0
+margin_right = 35.0
+margin_bottom = 19.0
+text = "  Key:"
+
+[node name="Key" type="LineEdit" parent="Interface/TabContainer/Options/Key"]
+margin_left = 39.0
+margin_right = 486.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+secret = true
+
+[node name="DebugBox" type="HBoxContainer" parent="Interface/TabContainer/Options"]
+margin_top = 90.0
+margin_right = 486.0
+margin_bottom = 130.0
+
+[node name="Debug" type="CheckButton" parent="Interface/TabContainer/Options/DebugBox"]
+margin_right = 125.0
+margin_bottom = 40.0
+pressed = true
+text = "Debug:"
+align = 1
+
+[node name="Fullscreen" type="CheckButton" parent="Interface/TabContainer/Options/DebugBox"]
+margin_left = 129.0
+margin_right = 279.0
+margin_bottom = 40.0
+text = "Fullscreen:"
+align = 1
+
+[node name="Blank" type="Control" parent="Interface/TabContainer/Options"]
+margin_top = 134.0
+margin_right = 486.0
+margin_bottom = 229.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Interface/TabContainer/Options"]
+margin_top = 233.0
+margin_right = 486.0
+margin_bottom = 253.0
+alignment = 2
+
+[node name="HelpButton" type="Button" parent="Interface/TabContainer/Options/Buttons"]
+margin_left = 444.0
+margin_right = 486.0
+margin_bottom = 20.0
+text = "Help"
+
+[node name="Sep3" type="HSeparator" parent="Interface/TabContainer/Options"]
+margin_top = 257.0
+margin_right = 486.0
+margin_bottom = 261.0
+
+[node name="AboutLabel" type="Label" parent="Interface/TabContainer/Options"]
+margin_top = 265.0
+margin_right = 486.0
+margin_bottom = 279.0
+text = "About"
+align = 1
+
+[node name="Sep4" type="HSeparator" parent="Interface/TabContainer/Options"]
+margin_top = 283.0
+margin_right = 486.0
+margin_bottom = 287.0
+
+[node name="Label" type="RichTextLabel" parent="Interface/TabContainer/Options"]
+margin_top = 291.0
+margin_right = 486.0
+margin_bottom = 306.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[center]NGP v0.1 - Zach K - Powered by [url=https://godotengine.org/]Godot[/url][/center]"
+text = "NGP v0.1 - Zach K - Powered by Godot"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Interface"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_top = 4.0
+margin_right = -5.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Min" type="Button" parent="Interface/HBoxContainer"]
+margin_left = 35.0
+margin_right = 63.0
+margin_bottom = 22.0
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Max" type="Button" parent="Interface/HBoxContainer"]
+margin_left = 67.0
+margin_right = 95.0
+margin_bottom = 22.0
+icon = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerMenu" type="PopupMenu" parent="."]
+margin_left = 9.0
+margin_top = 37.0
+margin_right = 104.0
+margin_bottom = 343.0
+
+[node name="HelpWindow" type="WindowDialog" parent="."]
+margin_left = 238.685
+margin_top = 161.573
+margin_right = 794.685
+margin_bottom = 498.573
+window_title = "Help"
+
+[node name="Panel" type="Panel" parent="HelpWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpText" type="RichTextLabel" parent="HelpWindow"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+bbcode_enabled = true
+[connection signal="resized" from="." to="." method="_on_Mainframe_resized"]
+[connection signal="item_rect_changed" from="Interface" to="Interface" method="_on_Interface_item_rect_changed"]
+[connection signal="popup_hide" from="Interface" to="Interface" method="_on_Interface_popup_hide"]
+[connection signal="resized" from="Interface" to="Interface" method="_on_Interface_resized"]
+[connection signal="item_selected" from="Interface/TabContainer/Connect/ServerList" to="Interface/TabContainer/Connect" method="_on_ServerList_item_selected"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Join" to="Interface/TabContainer/Connect" method="_on_Join_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Leave" to="Interface/TabContainer/Connect" method="_on_Leave_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Add" to="Interface/TabContainer/Connect" method="_on_Add_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Remove" to="Interface/TabContainer/Connect" method="_on_Remove_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Up" to="Interface/TabContainer/Connect" method="_on_Up_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/JoinButtons/Down" to="Interface/TabContainer/Connect" method="_on_Down_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/HostButtons/Host" to="Interface/TabContainer/Connect" method="_on_Host_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Connect/HostButtons/Code" to="Interface/TabContainer/Connect" method="_on_Code_pressed"]
+[connection signal="item_rmb_selected" from="Interface/TabContainer/Server/Players/PlayerList" to="Interface/TabContainer/Server" method="_on_PlayerList_item_rmb_selected"]
+[connection signal="text_entered" from="Interface/TabContainer/Server/Console/SenderBar/Sender" to="Interface/TabContainer/Server" method="_on_Sender_text_entered"]
+[connection signal="pressed" from="Interface/TabContainer/Server/Console/SenderBar/Clear" to="Interface/TabContainer/Server" method="_on_Clear_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Carts/Packs/Top/Folder" to="Interface/TabContainer/Carts" method="_on_Folder_pressed"]
+[connection signal="item_selected" from="Interface/TabContainer/Carts/Packs/PacksList" to="Interface/TabContainer/Carts" method="_on_PacksList_item_selected"]
+[connection signal="nothing_selected" from="Interface/TabContainer/Carts/Packs/PacksList" to="Interface/TabContainer/Carts" method="_on_PacksList_nothing_selected"]
+[connection signal="pressed" from="Interface/TabContainer/Carts/Other/Buttons/Play" to="Interface/TabContainer/Carts" method="_on_Play_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Carts/Other/Buttons/Stop" to="Interface/TabContainer/Carts" method="_on_Stop_pressed"]
+[connection signal="pressed" from="Interface/TabContainer/Carts/Other/Buttons/Refresh" to="Interface/TabContainer/Carts" method="_on_Refresh_pressed"]
+[connection signal="focus_exited" from="Interface/TabContainer/Options/PlayerName/Username" to="Interface/TabContainer/Options" method="_on_Username_focus_exited"]
+[connection signal="text_entered" from="Interface/TabContainer/Options/PlayerName/Username" to="Interface/TabContainer/Options" method="_on_Username_text_entered"]
+[connection signal="focus_exited" from="Interface/TabContainer/Options/Key/Key" to="Interface/TabContainer/Options" method="_on_Key_focus_exited"]
+[connection signal="text_entered" from="Interface/TabContainer/Options/Key/Key" to="Interface/TabContainer/Options" method="_on_Key_text_entered"]
+[connection signal="toggled" from="Interface/TabContainer/Options/DebugBox/Debug" to="Interface/TabContainer/Options" method="_on_Debug_toggled"]
+[connection signal="toggled" from="Interface/TabContainer/Options/DebugBox/Fullscreen" to="Interface/TabContainer/Options" method="_on_Fullscreen_toggled"]
+[connection signal="pressed" from="Interface/TabContainer/Options/Buttons/HelpButton" to="Interface/TabContainer/Options" method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="Interface/HBoxContainer/Min" to="Interface" method="_on_Min_pressed"]
+[connection signal="pressed" from="Interface/HBoxContainer/Max" to="Interface" method="_on_Max_pressed"]
+[connection signal="id_pressed" from="PlayerMenu" to="Interface/TabContainer/Server" method="_on_PlayerMenu_id_pressed"]

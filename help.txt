@@ -1,0 +1,35 @@
+[center][b]Help[/b][/center]
+
+This is where you can find basic help for NGP, as it goes over each tab individually.
+
+[center][b]Connect[/b][/center]
+
+You'll use the Connect tab to connect to other people's servers or host your own.
+
+Some quick notes: Make sure you have all of the same packs (aka mods) installed as the server BEFORE joining, or you might get disconnected due to mismatch. Also, NEVER EVER share a join code with someone you don't trust, as they do not change. Think of it like a IP address that only works in this program; you don't want to share them willy nilly.
+
+To join a server, have the host send you a join code (which they can copy to their clipboard by pressing the "Code" button to the right of the "Host" button). Copy this join code into the text box labeled "Join Code..." and press the play button on the left of the panel. NGP should connect you to the host pretty quickly, so if the connection takes more than 5 seconds, you probably entered the wrong code.
+
+To host a server, just press the "Host" button in the bottom right corner of the tab. After a few seconds people should be able to join with the code you can get with the "Code" button.
+
+To leave or stop hosting a server, press the square button to the right of the play button.
+
+You can also save join codes for later (they stay hidden) by typing in a custom server name (to the right of the join code box) and pressing the plus button. The minus, up, and down buttons should be self-explanitory.
+
+[center][b]Server[/b][/center]
+
+You'll use the Server tab to send chat messages and check which players are currently connected to the server. Press the clear button to clear the chat.
+
+[center][b]Carts[/b][/center]
+
+You'll use the Carts tab to load up a game to play with your friends (or by yourself). Only the host (or you if disconnected) can load a cart. As for packs/mods, these are .pck files that are loaded ON STARTUP. To load or unload packs/mods, you'll need to restart NGP.
+
+Packs/mods and carts that failed to load are surrounded by certain characters. An entry surrounded by "!!" failed to load completely, while an entry surrounded by "??" contains a logic error. In the latter case, you can click on the cart to see the reason for failure, but in the former case you won't be able to get an exact reason for failure.
+
+To get to the folder where packs/mods are located, press the up arrow above the left panel; you can put packs/mods in there. MAKE SURE YOU TRUST THE SOURCE OF THE MOD, as running a bad mod is like running a bad .exe file.
+
+To load a cart, select one from the tree on the left hand side (carts are organized by the pack/mod they are in) and click the play button on the right hand side above all of the information contained in that cart. Note that loading a cart will stop the currently loaded one. You can also stop the current cart with the square button or reload it with the reload button.
+
+[center][b]Options[/b][/center]
+
+Options are... pretty self explanitory. Change your username at any time, show/hide debug messages (<INFO>, <ERR>, etc), graphics, help, etc.
