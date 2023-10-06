@@ -1,7 +1,9 @@
 # NGP
-NGP (New Game Project) is a multiplayer wrapper for [Godot](https://godotengine.org/) games with the power to load different games without restarting the wrapper. Executable file is available in the releases page.
+NGP (New Game Project) is a multiplayer wrapper for [Godot](https://godotengine.org/) (version 3) games with the power to load different games without restarting the wrapper. Executable file is available in the releases page.
 
 It was mainly created to make creating and playing multiplayer games quick and easy, as it comes built in with a system to host and join other people (with a join-code and key instead of IP directly), and makes it so games don't have to set up a server connection in order to use the multiplayer features Godot provides.
+
+This project is archived now due to lack of interest.
 
 ## Carts
 
@@ -48,6 +50,6 @@ NGP will also provide data to the scene and call functions if the scene has cert
 `_player_leave(id)` - Called by NGP when a player leaves.
 `_update_name(id)` - Called by NGP when a player changes their username while connected to the server.
 
-## Games?
+## Contact
 
-If you make a cart with NGP, post it on github and submit an issue for it! I will close bad carts or tag good ones there. Making games is hard, so I haven't quite put the effort into finishing a cart for it yet.
+Contact me on [Discord](https://discord.gg/pBFqEcXvW5) and support me on [Ko-Fi](https://ko-fi.com/mathgeniuszach)!
